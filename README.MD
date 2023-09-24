@@ -29,7 +29,7 @@ SELECT * FROM `bigquery-public-data.github_repos.sample_repos` LIMIT 10
 > **Note:** We limit the query to 10 rows for explanation. The dataset used over 200,000 records and then sample again up to 15,000 records ready to use.
 
 ## Preprocess the data
-After downloading the dataset we applied some joins and drop columns. We save a dataframe in a csv file to import in our GitSoft Engine proyect.
+After downloading the dataset we applied some joins and drop columns in [generate_dataset.ipynb](generate_dataset.ipynb). We save a dataframe in a csv file to import in our GitSoft Engine proyect.
 
 Here's some charts of the kind of data we'll (this was taken from a **SAMPLE** of the whole dataset):
 
@@ -39,8 +39,8 @@ Here's some charts of the kind of data we'll (this was taken from a **SAMPLE** o
 ### Top 10 authors per watchers
 ![Alt text](image-1.png)
 
-### Top 10 authors per watchers
-![Alt text](image-1.png)
-
 ### Top 10 list of languages used in a repo per watchers
 ![Alt text](image-2.png)
+
+## More info about the next steps of the projec
+Follow the main repo [GitSoft-Engine](https://github.com/OscarSantosMu/GitSoft-Engine)
