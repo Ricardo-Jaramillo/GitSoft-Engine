@@ -117,7 +117,7 @@ async def process_string(input_string: str):
         return {
             "output_string": response,
             "watchers": watchers,
-            "reponame": temp,
+            "reponame": reponames,
         }
     except Exception as e:
         response = chatbot.chat(
