@@ -96,19 +96,28 @@ async def process_string(input_string: str):
     # Replace this with your own logic to process the input_string
     # For now, let's simply return it as is
     results = client.search(search_text=input_string)
-    for result in results:
-        res = result
+
+    temp = ""
+    watchers = []
+    reponames = []
+    for i, result in enumerate(results):
+        # res = result
+        watchers.append(result["watchers"])
+        reponames.append(result["repository"])
+        temp += str(result)
+        if i == 20:
+            break
 
     try:
         response = chatbot.chat(
-            f"Please write a human-readable answer, telling which repositories are the best for the user, based on the following JSON output. {str(res)}",
+            f"Please write a human-readable answer, provide the best repository or repositories that matches user interests/skills, based on the following JSON output. {temp}",
             # cache_kwargs={"namespace": "chatbot-cache-test"},
             print_cache_score=True,
         )
         return {
             "output_string": response,
-            "watchers": res["watchers"],
-            "reponame": res["repository"],
+            "watchers": watchers,
+            "reponame": temp,
         }
     except Exception as e:
         response = chatbot.chat(
