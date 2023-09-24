@@ -99,13 +99,21 @@ async def process_string(input_string: str):
     for result in results:
         res = result
 
-    response = chatbot.chat(
-        f"Please write a human-readable answer, telling which repository is best for the user, based on the following JSON output. {str(res)}",
-        # cache_kwargs={"namespace": "chatbot-cache-test"},
-        print_cache_score=True,
-    )
-    return {
-        "output_string": response,
-        "watchers": res["watchers"],
-        "reponame": res["repository"],
-    }
+    try:
+        response = chatbot.chat(
+            f"Please write a human-readable answer, telling which repository is best for the user, based on the following JSON output. {str(res)}",
+            # cache_kwargs={"namespace": "chatbot-cache-test"},
+            print_cache_score=True,
+        )
+        return {
+            "output_string": response,
+            "watchers": res["watchers"],
+            "reponame": res["repository"],
+        }
+    except Exception as e:
+        response = chatbot.chat(
+            f"Please inform the user there is not a match with any repository",
+            # cache_kwargs={"namespace": "chatbot-cache-test"},
+            print_cache_score=True,
+        )
+        return {"output_string": response}
