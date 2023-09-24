@@ -27,8 +27,8 @@ PINECONE_INDEX_NAME = os.getenv("PINECONE_INDEX_NAME")
 
 index_name = "cosmosdb-index"
 # Get the service endpoint and API key from the environment
-SEARCH_ENDPOINT = os.environ["SEARCH_ENDPOINT"]
-SEARCH_API_KEY = os.environ["SEARCH_API_KEY"]
+SEARCH_ENDPOINT = os.getenv("SEARCH_ENDPOINT")
+SEARCH_API_KEY = os.getenv("SEARCH_API_KEY")
 
 # Create a client
 credential = AzureKeyCredential(SEARCH_API_KEY)
