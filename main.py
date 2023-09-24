@@ -101,7 +101,7 @@ async def process_string(input_string: str):
 
     try:
         response = chatbot.chat(
-            f"Please write a human-readable answer, telling which repository is best for the user, based on the following JSON output. {str(res)}",
+            f"Please write a human-readable answer, telling which repositories are the best for the user, based on the following JSON output. {str(res)}",
             # cache_kwargs={"namespace": "chatbot-cache-test"},
             print_cache_score=True,
         )
