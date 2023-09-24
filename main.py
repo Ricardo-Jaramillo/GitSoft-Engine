@@ -73,7 +73,7 @@ cache = Cache(
 chatbot = Chatbot(
     model=model,
     # filters=filters,
-    cache=cache,
+    # cache=cache,
     description="You are a polite and very helpful assistant.",
 )
 # response = chatbot.chat(
